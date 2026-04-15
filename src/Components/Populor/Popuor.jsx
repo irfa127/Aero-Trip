@@ -60,8 +60,6 @@ const Popuor = () => {
               </h1>
               <p className="text-sm text-gray-500">{e.flights} flights daily</p>
             </div>
-
-         
             <div className="text-right">
               <p className="text-gray-400 text-sm">from</p>
               <h1 className="text-blue-500 font-bold text-lg">{e.price}</h1>

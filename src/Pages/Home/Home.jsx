@@ -12,11 +12,11 @@ const Home = () => {
       </div>
       <div>
         <Airline />
-        <div className="mx-20">
+        <div>
           <h1 className="font-bold text-3xl ml-169 ">
             Popular<span className="text-blue-500">Routes</span>
           </h1>
-          <p className="ml-129 text-3xl font-mono my-5">Top destinations our travelers love</p>
+          <p className="ml-119 text-3xl font-mono my-5">Top destinations our travelers love</p>
           <Popuor />
         </div>
         <About/>

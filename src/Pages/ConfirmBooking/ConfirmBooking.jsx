@@ -12,7 +12,6 @@ const ConfirmBookings = () => {
       <ConfirmBooking/>
       <FlightDetails/>
       <SeatAndPolicy/>
-  
       <Footer/>
       
     </div>

@@ -72,7 +72,7 @@ const PassengerForm = () => {
 
             <div className="flex gap-3 mt-2">
               <button className="px-4 py-2 border rounded-xl">Male</button>
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-xl">
+              <button className="px-4 py-2 rounded-xl border">
                 Female
               </button>
               <button className="px-4 py-2 border rounded-xl">Other</button>
@@ -80,9 +80,9 @@ const PassengerForm = () => {
           </div>
 
         
-          <div className="bg-red-100 text-red-600 p-3 rounded-xl border border-red-300">
+          {/* <div className="bg-red-100 text-red-600 p-3 rounded-xl border border-red-300">
             ⚠ Please select a seat to continue.
-          </div>
+          </div> */}
 
         </div>
 

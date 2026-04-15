@@ -6,7 +6,7 @@ import BookingsPage from './BookingPages'
 const MyBookings = () => {
   return (
     <div>
-        <Navbar_Full/>
+        
         <BookingsPage/>
        
     

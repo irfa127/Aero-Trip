@@ -5,8 +5,8 @@ import Navbar_Full from "../Navbar/MainLanding";
 const ConfirmBooking = () => {
   return (
     <div>
-      <Navbar_Full />
-      <div className="w-376 h-50 bg-blue-300">
+    
+      <div className="w-full h-50 bg-blue-300">
         <div className="bg-blue-700 w-20 h-20 mx-40 relative top-10 rounded-2xl">
           <h1 className="text-2xl font-bold text-white mx-6 relative top-5">
             6E

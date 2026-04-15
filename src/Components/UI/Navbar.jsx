@@ -9,7 +9,7 @@ import Navbar_Full from "../Navbar/MainLanding";
 const Navbar = () => {
   return (
     <div>
-      <Navbar_Full />
+      
       <Content />
       <Form />
     </div>
