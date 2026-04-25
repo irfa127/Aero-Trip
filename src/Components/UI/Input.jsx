@@ -1,66 +1,135 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
-import Date from "./Date";
+import { useNavigate } from "react-router-dom";
+
+const airports = [
+  {
+    id: 1,
+    name: "Chhatrapati Shivaji Maharaj International Airport",
+    city: "Mumbai, India",
+    code: "BOM",
+  },
+  {
+    id: 2,
+    name: "Indira Gandhi International Airport",
+    city: "Delhi, India",
+    code: "DEL",
+  },
+  {
+    id: 3,
+    name: "Kempegowda International Airport",
+    city: "Bangalore, India",
+    code: "BLR",
+  },
+  {
+    id: 4,
+    name: "Chennai International Airport",
+    city: "Chennai, India",
+    code: "MAA",
+  },
+];
 
 const Input = ({ type }) => {
+  const navigate = useNavigate();
+
   const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("");
+
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const close = (e) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", close);
+
+    return () =>
+      document.removeEventListener("mousedown", close);
+  }, []);
+
+  const filteredAirports = airports.filter(
+    (item) =>
+      item.name.toLowerCase().includes(value.toLowerCase()) ||
+      item.city.toLowerCase().includes(value.toLowerCase()) ||
+      item.code.toLowerCase().includes(value.toLowerCase())
+  );
+
+
+  const handleSelect = (airport) => {
+    setValue(`${airport.name} (${airport.code})`);
+    setOpen(false);
+  };
+
+
+  const handleSearch = () => {
+    const found = airports.find(
+      (item) =>
+        value.includes(item.code) ||
+        value.toLowerCase().includes(item.name.toLowerCase())
+    );
+
+    if (found) {
+      navigate(`/airlines/${found.id}`);
+    }
+  };
+
   return (
-    <div>
-      <label htmlFor="" className="text-3xl font-sans p-2 flex  ml-15">
+    <div className="relative w-full max-w-md" ref={wrapperRef}>
+      <label className="text-lg font-semibold mb-2 block">
         {type}
       </label>
 
-      <div className="flex  flex-row-reverse items-start ml-15">
-        <div className="relative">
-          <input
-            className="border-1 focus:border-blue-200  w-70 outline-0 px-3 py-2 rounded-2xl"
-            type="text"
-            name=""
-            id=""
-            onClick={() => setOpen(true)}
-            onBlur={() => setOpen(false)}
-          />
+      <div className="relative">
+        <input
+          type="text"
+          value={value}
+          placeholder={`Select ${type}`}
+          onChange={(e) => {
+            setValue(e.target.value);
+            setOpen(true);
+          }}
+          onFocus={() => setOpen(true)}
+          className="w-full border px-4 py-3 rounded-xl"
+        />
 
-          <IoMdArrowDropdownCircle
-            className={`absolute right-3 top-1/2 -translate-y-1/2 transition-transform duration-300 
-    ${open ? "rotate-180" : "rotate-0"}`}
-          />
-        </div>
-
-        {open && (
-          <div className="max-w-sm   bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden absolute">
-            <ul>
-              <li className="flex items-center justify-between p-4 hover:bg-slate-50 transition-colors cursor-pointer group">
-                <div className="flex flex-col">
-                  <span className="text-sm font-semibold text-slate-900 group-hover:text-blue-600">
-                    London Heathrow Airport
-                  </span>
-                  <span className="text-xs text-slate-500 uppercase tracking-wide">
-                    London, United Kingdom
-                  </span>
-                </div>
-                <span className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-bold font-mono">
-                  LHR
-                </span>
-              </li>
-
-              <li className="flex items-center justify-between p-4 hover:bg-slate-50 transition-colors cursor-pointer group">
-                <div className="flex flex-col">
-                  <span className="text-sm font-semibold text-slate-900 group-hover:text-blue-600">
-                    John F. Kennedy International
-                  </span>
-                  <span className="text-xs text-slate-500 uppercase tracking-wide">
-                    New York, USA
-                  </span>
-                </div>
-                <span className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-bold font-mono">
-                  JFK
-                </span>
-              </li>
-            </ul>
-          </div>
-        )}
+    
+        <IoMdArrowDropdownCircle
+          onClick={handleSearch}
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-blue-500 cursor-pointer hover:scale-110 transition"
+        />
       </div>
+
+  
+      {open && (
+        <div className="absolute w-full bg-white shadow-xl rounded-xl mt-2 z-50 max-h-72 overflow-y-auto">
+          {filteredAirports.map((airport) => (
+            <div
+              key={airport.id}
+              onMouseDown={() => handleSelect(airport)}
+              className="px-4 py-3 hover:bg-blue-50 cursor-pointer flex justify-between"
+            >
+              <div>
+                <p className="font-semibold text-sm">
+                  {airport.name}
+                </p>
+                <p className="text-xs text-gray-500">
+                  {airport.city}
+                </p>
+              </div>
+
+              <span className="bg-gray-100 px-2 py-1 rounded text-xs font-bold">
+                {airport.code}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

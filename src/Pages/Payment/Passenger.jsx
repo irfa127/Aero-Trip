@@ -8,10 +8,10 @@ import SwitchAirline from "../../Components/Payment/SwitchAirline";
 const Passengers = () => {
   return (
     <div>
-      <Navbar_Full />
+     
       <PassengerForm />
-      <SwitchAirline/>
-      <Footer />
+      
+     
     </div>
   );
 };

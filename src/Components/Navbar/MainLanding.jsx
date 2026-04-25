@@ -1,44 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdFlightLand } from "react-icons/md";
-import { FaHistory } from "react-icons/fa";
-import { GrUserAdmin } from "react-icons/gr";
-import Content from "../Navbar/Content";
-import Form from "../Navbar/Input";
-import {Link } from 'react-router-dom'
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar_Full = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Flights", path: "/" },
+    { name: "Airlines", path: "/airlines/1" },
+    { name: "My Booking", path: "/mybookings" },
+  ];
+
   return (
-    <div>
-      <div className="bg-white h-17">
-        <div className="flex gap-5 py-5">
-          <MdFlightLand className="w-20 h-10 " />
-          <h1 className="text-4xl ">
-            Aero <span className="text-blue-700">Trip</span>
+    <header className="w-full bg-white shadow-md sticky top-0 z-50">
+   
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+        <Link to="/" className="flex items-center gap-2">
+          <MdFlightLand className="text-4xl text-blue-600" />
+
+          <h1 className="text-3xl font-bold text-gray-800">
+            Aero <span className="text-blue-600">Trip</span>
           </h1>
-          
-          <div>
-            <ul className="flex gap-6 ml-80">
-             <Link to="/"><li className="text-2xl">Flights</li></Link>
-            <Link to="/airlines/:id"><li className="text-2xl">Air lines</li> </Link>
-          <Link to='/mybookings'><li className="text-2xl">My Booking</li></Link>
-              
-            </ul>
-          </div>
-          <div className="">
-            <div className="ml-60 flex ">
-              <h1 className="text-2xl mr-20 flex gap-2">
-                <FaHistory className="mt-1.5" />
-                History
-              </h1>
-              <h1 className="text-2xl flex gap-2 ">
-                <GrUserAdmin className="mt-1.5" />
-                Admin
-              </h1>
-            </div>
+        </Link>
+
+      
+        <nav className="hidden lg:flex gap-8 items-center">
+          {navLinks.map((item, index) => (
+            <NavLink
+              key={index}
+              to={item.path}
+              className={({ isActive }) =>
+                `text-lg font-medium transition hover:text-blue-600 ${
+                  isActive
+                    ? "text-blue-600"
+                    : "text-gray-700"
+                }`
+              }
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </nav>
+
+    
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="lg:hidden text-2xl text-gray-700"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
+    
+      {menuOpen && (
+        <div className="lg:hidden bg-white shadow-md px-6 pb-6">
+          <div className="flex flex-col gap-4">
+            {navLinks.map((item, index) => (
+              <NavLink
+                key={index}
+                to={item.path}
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `text-lg font-medium ${
+                    isActive
+                      ? "text-blue-600"
+                      : "text-gray-700"
+                  }`
+                }
+              >
+                {item.name}
+              </NavLink>
+            ))}
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </header>
   );
 };
 

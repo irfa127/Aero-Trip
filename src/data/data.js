@@ -72,108 +72,89 @@ export const flights = [
     data: [
       {
         code: "6E",
+        airline: "IndiGo",
         departTime: "06:00",
-        from: "BOM",
-        fromCity: "Mumbai",
-        duration: "2h 15m",
-        arriveTime: "08:15",
-        to: "DEL",
-        toCity: "Delhi",
-        price: "₹4,299",
-        taxes: "+₹516 taxes",
+        from: "MAA",
+        fromCity: "Chennai",
+        duration: "1h 05m",
+        arriveTime: "07:05",
+        to: "BLR",
+        toCity: "Bangalore",
+        price: "₹3,299",
+        taxes: "+₹420 taxes",
         aircraft: "Airbus A320",
       },
       {
-        code: "6E",
-        departTime: "12:00",
-        from: "BOM",
-        fromCity: "Mumbai",
+        code: "AI",
+        airline: "Air India",
+        departTime: "09:15",
+        from: "MAA",
+        fromCity: "Chennai",
         duration: "2h 20m",
-        arriveTime: "14:20",
+        arriveTime: "11:35",
         to: "DEL",
         toCity: "Delhi",
-        price: "₹4,800",
-        taxes: "+₹520 taxes",
-        aircraft: "Airbus A321",
-      }
-    ]
+        price: "₹5,899",
+        taxes: "+₹690 taxes",
+        aircraft: "Boeing 787",
+      },
+    ],
   },
 
   {
     id: 2,
     data: [
       {
-        code: "AI",
-        departTime: "09:30",
-        from: "BOM",
-        fromCity: "Mumbai",
-        duration: "2h 30m",
-        arriveTime: "12:00",
-        to: "DEL",
-        toCity: "Delhi",
-        price: "₹5,800",
-        taxes: "+₹696 taxes",
-        aircraft: "Boeing 787",
+        code: "SG",
+        airline: "SpiceJet",
+        departTime: "07:45",
+        from: "HYD",
+        fromCity: "Hyderabad",
+        duration: "1h 20m",
+        arriveTime: "09:05",
+        to: "GOI",
+        toCity: "Goa",
+        price: "₹4,199",
+        taxes: "+₹470 taxes",
+        aircraft: "Boeing 737",
       },
       {
-        code: "AI",
-        departTime: "18:00",
-        from: "BOM",
-        fromCity: "Mumbai",
-        duration: "2h 40m",
-        arriveTime: "20:40",
-        to: "DEL",
-        toCity: "Delhi",
-        price: "₹6,200",
-        taxes: "+₹720 taxes",
-        aircraft: "Boeing 777",
-      }
-    ]
+        code: "QP",
+        airline: "Akasa Air",
+        departTime: "12:30",
+        from: "HYD",
+        fromCity: "Hyderabad",
+        duration: "1h 30m",
+        arriveTime: "14:00",
+        to: "BOM",
+        toCity: "Mumbai",
+        price: "₹3,950",
+        taxes: "+₹430 taxes",
+        aircraft: "Boeing 737 MAX",
+      },
+    ],
   },
 
   {
     id: 3,
     data: [
       {
-        code: "SG",
-        departTime: "11:00",
-        from: "DEL",
-        fromCity: "Delhi",
-        duration: "2h 20m",
-        arriveTime: "13:20",
-        to: "BLR",
-        toCity: "Bangalore",
-        price: "₹4,900",
-        taxes: "+₹520 taxes",
-        aircraft: "Boeing 737",
-      }
-    ]
-  },
-
-  {
-    id: 4,
-    data: [
-      {
         code: "EK",
+        airline: "Emirates",
         departTime: "14:00",
         from: "DEL",
         fromCity: "Delhi",
-        duration: "3h 30m",
-        arriveTime: "17:30",
+        duration: "3h 50m",
+        arriveTime: "17:50",
         to: "DXB",
         toCity: "Dubai",
-        price: "₹18,200",
-        taxes: "+₹900 taxes",
+        price: "₹22,999",
+        taxes: "+₹1200 taxes",
         aircraft: "Airbus A380",
-      }
-    ]
-  },
-
-  {
-    id: 5,
-    data: [
+      },
       {
         code: "QR",
+        airline: "Qatar Airways",
         departTime: "18:30",
         from: "DEL",
         fromCity: "Delhi",
@@ -181,107 +162,80 @@ export const flights = [
         arriveTime: "22:30",
         to: "DOH",
         toCity: "Doha",
-        price: "₹20,100",
-        taxes: "+₹950 taxes",
+        price: "₹25,999",
+        taxes: "+₹1500 taxes",
         aircraft: "Boeing 777",
-      }
-    ]
+      },
+    ],
   },
 
   {
-    id: 6,
+    id: 4,
     data: [
       {
-        code: "6E",
-        departTime: "07:45",
-        from: "DEL",
-        fromCity: "Delhi",
-        duration: "2h 10m",
-        arriveTime: "09:55",
+        code: "UK",
+        airline: "Vistara",
+        departTime: "08:20",
+        from: "BOM",
+        fromCity: "Mumbai",
+        duration: "2h 15m",
+        arriveTime: "10:35",
         to: "BLR",
         toCity: "Bangalore",
-        price: "₹5,200",
-        taxes: "+₹600 taxes",
-        aircraft: "Airbus A320",
-      }
-    ]
+        price: "₹6,450",
+        taxes: "+₹720 taxes",
+        aircraft: "Airbus A321",
+      },
+      {
+        code: "G8",
+        airline: "Go First",
+        departTime: "16:10",
+        from: "BOM",
+        fromCity: "Mumbai",
+        duration: "2h 05m",
+        arriveTime: "18:15",
+        to: "CCU",
+        toCity: "Kolkata",
+        price: "₹4,999",
+        taxes: "+₹510 taxes",
+        aircraft: "Airbus A320neo",
+      },
+    ],
   },
 
   {
-    id: 7,
+    id: 5,
     data: [
       {
-        code: "AI",
-        departTime: "10:15",
+        code: "SQ",
+        airline: "Singapore Airlines",
+        departTime: "21:15",
+        from: "MAA",
+        fromCity: "Chennai",
+        duration: "4h 30m",
+        arriveTime: "01:45",
+        to: "SIN",
+        toCity: "Singapore",
+        price: "₹29,999",
+        taxes: "+₹1450 taxes",
+        aircraft: "Airbus A350",
+      },
+      {
+        code: "LH",
+        airline: "Lufthansa",
+        departTime: "23:30",
         from: "DEL",
         fromCity: "Delhi",
-        duration: "2h 40m",
-        arriveTime: "12:55",
-        to: "BLR",
-        toCity: "Bangalore",
-        price: "₹6,500",
-        taxes: "+₹700 taxes",
-        aircraft: "Boeing 787",
-      }
-    ]
+        duration: "8h 10m",
+        arriveTime: "07:40",
+        to: "FRA",
+        toCity: "Frankfurt",
+        price: "₹54,999",
+        taxes: "+₹2200 taxes",
+        aircraft: "Boeing 747",
+      },
+    ],
   },
-
-  {
-    id: 8,
-    data: [
-      {
-        code: "SG",
-        departTime: "13:00",
-        from: "DEL",
-        fromCity: "Delhi",
-        duration: "2h 30m",
-        arriveTime: "15:30",
-        to: "BLR",
-        toCity: "Bangalore",
-        price: "₹5,800",
-        taxes: "+₹650 taxes",
-        aircraft: "Boeing 737",
-      }
-    ]
-  },
-
-  {
-    id: 9,
-    data: [
-      {
-        code: "EK",
-        departTime: "17:00",
-        from: "DEL",
-        fromCity: "Delhi",
-        duration: "3h 40m",
-        arriveTime: "20:40",
-        to: "DXB",
-        toCity: "Dubai",
-        price: "₹22,200",
-        taxes: "+₹1000 taxes",
-        aircraft: "Airbus A380",
-      }
-    ]
-  },
-
-  {
-    id: 10,
-    data: [
-      {
-        code: "QR",
-        departTime: "21:00",
-        from: "DEL",
-        fromCity: "Delhi",
-        duration: "4h 10m",
-        arriveTime: "01:10",
-        to: "DOH",
-        toCity: "Doha",
-        price: "₹25,000",
-        taxes: "+₹1100 taxes",
-        aircraft: "Boeing 777",
-      }
-    ]
-  }
 ];
 
 
